@@ -1,4 +1,4 @@
-Uri urlBase = Uri(scheme: 'http', host: '45.79.101.14', port: 80);
+Uri urlBase = Uri(scheme: 'http', host: '127.0.0.1', port: 5000);
 String extSettings = '/settings';
 String extSchedule = '/schedule';
 String extWrite = '/weekly_email';
