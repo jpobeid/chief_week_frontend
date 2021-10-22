@@ -23,7 +23,7 @@ class HomePage extends ConsumerWidget {
       body: Column(
         children: [
           const SettingsLayout(
-            flexMain: 5,
+            flexMain: 4,
           ),
           Expanded(
             flex: 1,
@@ -71,7 +71,7 @@ class HomePage extends ConsumerWidget {
         child: Center(
           child: Text(
             label,
-            style: const TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ),
       ),

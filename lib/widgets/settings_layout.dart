@@ -93,10 +93,16 @@ class _SettingsLayoutState extends ConsumerState<SettingsLayout> {
                 ),
                 Expanded(
                   flex: 5,
-                  child: makeListView(
-                      map: _settingsMain,
-                      isEditing: _isEditingMain,
-                      controllers: _controllersMain),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                      border: Border.all(color: Colors.black, width: 2),
+                    ),
+                    child: makeListView(
+                        map: _settingsMain,
+                        isEditing: _isEditingMain,
+                        controllers: _controllersMain),
+                  ),
                 ),
                 Expanded(
                   flex: 1,
@@ -125,11 +131,17 @@ class _SettingsLayoutState extends ConsumerState<SettingsLayout> {
                   ),
                 ),
                 Expanded(
-                  flex: 5,
-                  child: makeListView(
-                      map: _settingsReminders,
-                      isEditing: _isEditingReminders,
-                      controllers: _controllersReminders),
+                  flex: 3,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                      border: Border.all(color: Colors.black, width: 2),
+                    ),
+                    child: makeListView(
+                        map: _settingsReminders,
+                        isEditing: _isEditingReminders,
+                        controllers: _controllersReminders),
+                  ),
                 ),
               ],
             ),
@@ -155,7 +167,7 @@ class _SettingsLayoutState extends ConsumerState<SettingsLayout> {
                     style: SettingsLayout.styleMain,
                     textAlign: TextAlign.center,
                   ),
-                  color: Colors.green,
+                  color: const Color.fromARGB(100, 0, 200, 100),
                 ),
               ),
               Expanded(
@@ -170,7 +182,7 @@ class _SettingsLayoutState extends ConsumerState<SettingsLayout> {
                           map.values.toList()[index],
                           style: SettingsLayout.styleMain,
                         ),
-                  color: Colors.red,
+                  color: const Color.fromARGB(100, 200, 0, 100),
                 ),
               ),
             ],
