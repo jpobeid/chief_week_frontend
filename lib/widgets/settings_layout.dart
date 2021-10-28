@@ -1,5 +1,5 @@
 import 'package:chief_week_frontend/functions/http_funcs.dart';
-import 'package:chief_week_frontend/pages/home_page.dart';
+import 'package:chief_week_frontend/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
