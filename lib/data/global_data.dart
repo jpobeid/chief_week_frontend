@@ -1,3 +1,4 @@
+const String filenameSchedule = 'schedule.csv';
 const String filenameDocx = 'weekly_email.docx';
 
 const List<String> settingKeys = [

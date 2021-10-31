@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:chief_week_frontend/data/http_data.dart' as datas;
 import 'package:chief_week_frontend/functions/http_funcs.dart' as funcs;
+import 'package:chief_week_frontend/data/global_data.dart' as globals;
 import 'package:chief_week_frontend/providers.dart';
 import 'package:chief_week_frontend/widgets/settings_layout.dart';
 import 'package:file_picker/file_picker.dart' as picker;
@@ -113,7 +114,7 @@ class HomePage extends ConsumerWidget {
   Future<int> uploadSchedule(BuildContext context, WidgetRef ref) async {
     picker.FilePickerResult? results = await picker.FilePicker.platform
         .pickFiles(type: picker.FileType.custom, allowedExtensions: ['csv']);
-    if (results != null) {
+    if (results != null && results.names.first == globals.filenameSchedule) {
       https.Response response = await https.post(
           datas.urlBase.replace(path: datas.extSchedule),
           body: json.encode({datas.keySchedule: results.files.first.bytes}),
@@ -121,8 +122,14 @@ class HomePage extends ConsumerWidget {
       makeResponseSnackBar(context, response.statusCode,
           'Successfully uploaded "schedule.csv"!');
       return response.statusCode;
+    } else if (results != null &&
+        results.names.first != globals.filenameSchedule) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Error: Lecture schedule needs to be named "${globals.filenameSchedule}"...')));
+      return 400;
     } else {
-      return 500;
+      return 400;
     }
   }
 
